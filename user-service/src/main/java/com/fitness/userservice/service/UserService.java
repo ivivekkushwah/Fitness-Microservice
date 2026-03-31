@@ -62,4 +62,9 @@ public class UserService {
         userResponse.setUpdatedAt(user.getUpdatedAt());
         return userResponse;
     }
+
+    public Boolean existById(@Valid Integer userId) {
+        return  userRepo.existsById(userId.longValue());
+    }
+
 }

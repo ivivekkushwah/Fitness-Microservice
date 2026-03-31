@@ -28,4 +28,8 @@ public class UserController {
     public ResponseEntity<UserResponse> register (@Valid @RequestBody RegisterRequest request){
             return ResponseEntity.ok(userService.register(request));
     }
+    @GetMapping("/{userId}/validate")
+    public ResponseEntity<Boolean> validateUser (@Valid @PathVariable Integer userId){
+        return ResponseEntity.ok(userService.existById(userId));
+    }
 }
