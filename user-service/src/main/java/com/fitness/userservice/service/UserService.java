@@ -6,10 +6,12 @@ import com.fitness.userservice.model.User;
 import com.fitness.userservice.repo.UserRepo;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class UserService {
 
     private final UserRepo userRepo;
@@ -64,6 +66,7 @@ public class UserService {
     }
 
     public Boolean existById(@Valid Integer userId) {
+        log.info("Calling user service web service to validate user with ID: {}", userId);
         return  userRepo.existsById(userId.longValue());
     }
 
